@@ -2,7 +2,9 @@
   <div :class="$style.wrapper">
     <nuxt-link :to="`/product/${product.pSlug}`">
       <p>{{ product.pName }}</p>
-      <img :src="product.image" />
+      <img v-lazy="product.image"
+          :class="$style.image"
+      />
     </nuxt-link>
     <p>Цена {{ product.pPrice }}</p>
   </div>
@@ -23,5 +25,9 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
+}
+.image {
+  width: 300px;
+  height: 300px;
 }
 </style>
